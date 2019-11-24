@@ -117,3 +117,15 @@ Zend OPcache
 └── www
 
 ```
+
+#### 快速使用
+1. 本地安装 `git`, `docker`, `docker-compose`
+2. 克隆到本地
+    ```
+    $ git clone https://github.com/Romoloso/dnmp.git docker
+    ```  
+3. 启用
+    ```
+    $ cd docker
+    $ docker-compose up -d
+    ```
