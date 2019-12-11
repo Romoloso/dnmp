@@ -1,3 +1,4 @@
-/log/*
-/mysql/*
+/log
+/mysql
 /www/crm
+.*

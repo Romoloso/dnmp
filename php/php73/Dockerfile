@@ -43,7 +43,8 @@ RUN set -ex \
     # add lib
     && apk --no-cache add mariadb-client zip unzip libzip-dev libaio hiredis-dev gettext gettext-dev libxml2-dev libxslt \
     libxslt-dev linux-headers libaio-dev openssl-dev openssl libstdc++ librdkafka-dev freetype freetype-dev gifsicle jpegoptim \
-    libjpeg-turbo libjpeg-turbo-dev libpng libpng-dev pngquant libmemcached libmemcached-dev curl hiredis-dev\
+    libjpeg-turbo libjpeg-turbo-dev libpng libpng-dev pngquant libmemcached libmemcached-dev curl hiredis-dev \
+    imap-dev \
     # php extension: gd
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/local/jpeg/ --with-png-dir=/usr/include/ \
     && docker-php-ext-install -j$(getconf _NPROCESSORS_ONLN) gd \
@@ -64,6 +65,11 @@ RUN set -ex \
     && docker-php-ext-install pdo_mysql \
     # php extension: soap
     && docker-php-ext-install soap \
+    # php extension: imap, libc-client-dev and libkrb5-dev package
+    # doesn't exist on alpine, should install imap-dev instead.
+    # if you use libc-client-dev and libkrb5-dev, you need write
+    # *docker-php-ext-configure imap --with-kerberos --with-imap-ssl \* before install imap
+    && docker-php-ext-install imap \
     # php extension: xsl
     && docker-php-ext-install xsl \
     # php extension: xmlrpc
