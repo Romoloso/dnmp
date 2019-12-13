@@ -30,6 +30,7 @@ gd
 gettext
 hash
 iconv
+imap
 json
 libxml
 mbstring
@@ -112,8 +113,6 @@ Zend OPcache
 ©¦      ©À©¤©¤ swoole-4.4.12.tgz
 ©¦      ©À©¤©¤ xdebug-2.8.0.tgz
 ©¦      ©¸©¤©¤ xhprof-2.1.0.tar.gz
-©¦   
-©¦   
 ©¸©¤©¤ www
 
 ```
