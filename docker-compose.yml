@@ -15,7 +15,7 @@ services:
       - net-php
 
   php:
-    build: ./php/php73/
+    build: ./php/php74/
     volumes:
       - ./www/:/var/www/html
       - ./conf/php/php.ini:/usr/local/etc/php/php.ini
@@ -47,26 +47,6 @@ services:
       - net-redis
     ports:
       - "6379:6379"
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    ports:
-      - "8080:80"
-    networks:
-      - net-mysql
-    environment:
-      - PMA_HOST=mysql
-      - PMA_PORT=3306
-
-  phpredisadmin:
-    image: erikdubbelboer/phpredisadmin:latest
-    ports:
-      - "8081:80"
-    networks:
-      - net-redis
-    environment:
-      - REDIS_1_HOST=redis
-      - REDIS_1_PORT=6379
 
 networks:
   net-php:
